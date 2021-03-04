@@ -5,8 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FunctionsWpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow"
+        Height="450"
+        Width="800">
     <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="5*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <ListBox x:Name="ListBoxFunctions"
+                     Grid.Row="0"
+                     Margin="15"
+                     SelectedIndex="{Binding CurrentFunction}">
+                <ListBoxItem Content="линейная" />
+                <ListBoxItem Content="квадратичная" />
+                <ListBoxItem Content="кубическая" />
+                <ListBoxItem Content="4-ой степени" />
+                <ListBoxItem Content="5-ой степени" />
+            </ListBox>
+
+        </Grid>
 
     </Grid>
 </Window>
