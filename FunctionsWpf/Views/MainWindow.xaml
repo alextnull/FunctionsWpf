@@ -8,6 +8,33 @@
         Title="MainWindow"
         Height="450"
         Width="800">
+
+    <Window.Resources>
+
+        <Style TargetType="DockPanel">
+            <Setter Property="VerticalAlignment"
+                    Value="Top" />
+            <Setter Property="Margin"
+                    Value="0, 5" />
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin"
+                    Value="0, 0, 10, 0" />
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="MinHeight"
+                    Value="24" />
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="MinHeight"
+                    Value="24" />
+        </Style>
+        
+    </Window.Resources>
+    
     <Grid>
 
         <Grid.ColumnDefinitions>
@@ -33,7 +60,40 @@
                 <ListBoxItem Content="5-ой степени" />
             </ListBox>
 
+            <Grid x:Name="GridCoefficients"
+                  Grid.Row="1"
+                  Margin="15, 0, 15, 15">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <DockPanel Grid.Row="0">
+                    <TextBlock Text="a" />
+                    <TextBox x:Name="TextBoxA"
+                             Text="{Binding A}" />
+                </DockPanel>
+
+                <DockPanel Grid.Row="1">
+                    <TextBlock Text="b" />
+                    <TextBox x:Name="TextBoxB"
+                             Text="{Binding B}" />
+                </DockPanel>
+
+                <DockPanel Grid.Row="2">
+                    <TextBlock Text="c" />
+                    <ComboBox x:Name="ListBoxC"
+                              ItemsSource="{Binding CValues}"
+                              SelectedItem="{Binding CString}" />
+                </DockPanel>
+
+            </Grid>
+
         </Grid>
+
+
 
     </Grid>
 </Window>
