@@ -69,5 +69,24 @@ namespace FunctionsWpf.ViewModels
         }
 
         #endregion
+
+        #region Коэффициент 'b'
+
+        /// <summary>
+        /// Хранит коэффициенты 'b' для каждой функции.
+        /// Элемент с индексом 0 представляет коэффициент 'b' линейной функции, 1 - квадратичной, ... , 4 -> 5-ой степени.
+        /// </summary>
+        private int[] _coefficientsB = new int[5];
+
+        /// <summary>
+        /// Хранит коэффициент 'b' для выбранной функции.
+        /// </summary>
+        public int B
+        {
+            get => _coefficientsB[CurrentFunction];
+            set => Set(ref _coefficientsB[CurrentFunction], value);
+        }
+
+        #endregion
     }
 }
