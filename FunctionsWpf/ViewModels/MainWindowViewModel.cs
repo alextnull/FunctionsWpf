@@ -36,5 +36,20 @@ namespace FunctionsWpf.ViewModels
 
         #endregion
 
+        #region Индекс выбранной функции
+
+        private int _currentFunction;
+
+        /// <summary>
+        /// Хранит индекс выбранной функции.
+        /// </summary>
+        public int CurrentFunction
+        {
+            get => _currentFunction;
+            set => Set(ref _currentFunction, value);
+        }
+
+        #endregion
+
     }
 }
