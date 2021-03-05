@@ -32,8 +32,6 @@
         <Style TargetType="TextBox">
             <Setter Property="MinHeight"
                     Value="24" />
-            <Setter Property="MaxLength"
-                    Value="11" />
         </Style>
 
         <Style TargetType="ComboBox">
@@ -94,14 +92,13 @@
                 <DockPanel Grid.Row="0">
                     <TextBlock Text="a" />
                     <TextBox x:Name="TextBoxA"
-                             Text="{Binding A, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                             Text="{Binding A, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat=N2}" />
                 </DockPanel>
 
                 <DockPanel Grid.Row="1">
                     <TextBlock Text="b" />
                     <TextBox x:Name="TextBoxB"
-                             MaxLength="11"
-                             Text="{Binding B, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                             Text="{Binding B, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat=N2}" />
                 </DockPanel>
 
                 <DockPanel Grid.Row="2">
@@ -134,7 +131,7 @@
                                         Header="f(x, y)"
                                         IsReadOnly="True">
                         <DataGridTextColumn.Binding>
-                            <MultiBinding Converter="{StaticResource CalculateFunctionConvertor}">
+                            <MultiBinding Converter="{StaticResource CalculateFunctionConvertor}" StringFormat="N2">
                                 <Binding Path="DataContext.A"
                                          RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=Window}" />
                                 <Binding Path="DataContext.B"
@@ -151,29 +148,11 @@
 
                     <DataGridTextColumn Width="*"
                                         Header="x"
-                                        Binding="{Binding X, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                        
-                        <DataGridTextColumn.EditingElementStyle>
-                            <Style TargetType="TextBox">
-                                <Setter Property="MaxLength"
-                                        Value="11" />
-                            </Style>
-                        </DataGridTextColumn.EditingElementStyle>
-                        
-                    </DataGridTextColumn>
-                    
+                                        Binding="{Binding X, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat=N2}" />
+
                     <DataGridTextColumn Width="*"
                                         Header="y"
-                                        Binding="{Binding Y, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                        
-                        <DataGridTextColumn.EditingElementStyle>
-                            <Style TargetType="TextBox">
-                                <Setter Property="MaxLength"
-                                        Value="11" />
-                            </Style>
-                        </DataGridTextColumn.EditingElementStyle>
-                        
-                    </DataGridTextColumn>
+                                        Binding="{Binding Y, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat=N2}" />
                 </DataGrid.Columns>
             </DataGrid>
 
