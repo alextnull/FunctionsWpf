@@ -40,7 +40,7 @@ namespace FunctionsWpf.ViewModels
 
         #region Индекс выбранной функции
 
-        private int _currentFunction;
+        private int _currentFunction = 0;
 
         /// <summary>
         /// Хранит индекс выбранной функции.
