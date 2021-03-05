@@ -38,6 +38,17 @@
                     Value="24" />
         </Style>
 
+        <Style TargetType="Button">
+            <Setter Property="Margin"
+                    Value="0, 10" />
+            <Setter Property="Height"
+                    Value="30" />
+            <Setter Property="Width"
+                    Value="110" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Left" />
+        </Style>
+        
     </Window.Resources>
 
     <Grid>
@@ -98,7 +109,37 @@
 
         </Grid>
 
+        <Grid Grid.Column="1">
 
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <DataGrid x:Name="DataGridFunctions"
+                      Grid.Row="0"
+                      AutoGenerateColumns="False"
+                      MinHeight="60"
+                      Margin="0, 15, 15, 0"
+                      CanUserAddRows="True"
+                      ItemsSource="{Binding Functions}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="*"
+                                        Header="f(x, y)" />
+                    <DataGridTextColumn Width="*"
+                                        Header="x"
+                                        Binding="{Binding X, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <DataGridTextColumn Width="*"
+                                        Header="y"
+                                        Binding="{Binding Y, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Button x:Name="ButtonAddRow"
+                    Grid.Row="1"
+                    Content="Добавить строку" />
+
+        </Grid>
 
     </Grid>
 </Window>
