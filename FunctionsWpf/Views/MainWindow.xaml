@@ -131,14 +131,16 @@
                                         IsReadOnly="True">
                         <DataGridTextColumn.Binding>
                             <MultiBinding Converter="{StaticResource CalculateFunctionConvertor}">
-                                <Binding Path="Data.Context.A"
+                                <Binding Path="DataContext.A"
                                          RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=Window}" />
-                                <Binding Path="Data.Context.B"
+                                <Binding Path="DataContext.B"
                                          RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=Window}" />
-                                <Binding Path="Data.Context.C"
+                                <Binding Path="DataContext.C"
                                          RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=Window}" />
                                 <Binding Path="X" />
                                 <Binding Path="Y" />
+                                <Binding Path="DataContext.CurrentFunction"
+                                         RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=Window}" />
                             </MultiBinding>
                         </DataGridTextColumn.Binding>
                     </DataGridTextColumn>
