@@ -83,7 +83,7 @@ namespace FunctionsWpf.ViewModels
             {
                 Set(ref _currentFunction, value);
                 ChangeCValues();
-                OnPropertiesChanged("A", "B", "C", "CValues");
+                OnPropertiesChanged("A", "B", "C", "CValues", "Functions");
             }
         }
 
