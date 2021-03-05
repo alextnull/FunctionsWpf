@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FunctionsWpf.Models;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -140,6 +141,17 @@ namespace FunctionsWpf.ViewModels
             set => Set(ref _coefficientsC[CurrentFunction], value);
         }
 
+        #endregion
+
+        #region Коллекция для хранения функций
+
+        private ObservableCollection<ObservableCollection<Function>> _functions;
+
+        public ObservableCollection<Function> Functions
+        {
+            get => _functions[CurrentFunction];
+            set => Set(_functions[CurrentFunction], value);
+        }
         #endregion
 
         #region Методы
