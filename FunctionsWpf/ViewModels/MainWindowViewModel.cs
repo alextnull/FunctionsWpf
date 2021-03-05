@@ -1,4 +1,5 @@
-﻿using FunctionsWpf.Models;
+﻿using FunctionsWpf.Infrastructure.Commands;
+using FunctionsWpf.Models;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -215,9 +216,20 @@ namespace FunctionsWpf.ViewModels
 
         #endregion
 
-        #region Конструктор
+        #region Методы инициализации 
 
-        public MainWindowViewModel()
+        /// <summary>
+        /// Инициализирует команды
+        /// </summary>
+        private void InitializeCommands()
+        {
+            AddRowToFunctionTableCommand = new RelayCommand(OnAddRowToFunctionTableCommandExecuted);
+        }
+
+        /// <summary>
+        /// Инициализирует коллекции
+        /// </summary>
+        private void InitializeCollections()
         {
             CValues = new ObservableCollection<int>();
             ChangeCValues();
@@ -230,5 +242,17 @@ namespace FunctionsWpf.ViewModels
         }
 
         #endregion
+
+        #region Конструктор
+
+        public MainWindowViewModel()
+        {
+            InitializeCollections();
+            InitializeCommands();
+        }
+
+        #endregion
+
+
     }
 }
