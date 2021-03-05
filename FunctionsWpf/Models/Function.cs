@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace FunctionsWpf.Models
@@ -72,6 +73,18 @@ namespace FunctionsWpf.Models
         /// Используется для указания типа функции
         /// </summary>
         public enum FunctionType { Linear, Quadratic, Cubic, FourthDegree, FiveDegree }
+
+        /// <summary>
+        /// Возвращает тип функции с помощь индекса
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public FunctionType GetFunctionTypeFromIndex(int index)
+        {
+            if (index < 0 || index > 4)
+                throw new ArgumentException();
+            return (FunctionType)index;
+        }
 
         #endregion
 
