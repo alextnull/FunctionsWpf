@@ -102,7 +102,7 @@ namespace FunctionsWpf.Models
         {
             int powerNumber = (int)functionType + 1;
             double function = a * Math.Pow(X, powerNumber) + b * Math.Pow(Y, powerNumber - 1) + c;
-            return function;
+            return Math.Round(function, 2);
         }
 
         #endregion
