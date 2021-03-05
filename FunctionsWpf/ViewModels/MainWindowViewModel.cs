@@ -3,6 +3,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Input;
 
 namespace FunctionsWpf.ViewModels
 {
@@ -189,6 +190,28 @@ namespace FunctionsWpf.ViewModels
                 CValues.Add((i + 1) * (int)Math.Pow(10, CurrentFunction));
             }
         }
+
+        #endregion
+
+        #region Команды
+
+        #region Add Row To Function Table Command
+
+        /// <summary>
+        /// Добавляет новую строку в таблицу с функциями
+        /// </summary>
+        public ICommand AddRowToFunctionTableCommand;
+
+        /// <summary>
+        /// Добавляет новую строку в таблицу с функциями при вызове команды AddRowToFunctionTableCommand
+        /// </summary>
+        /// <param name="parameter"></param>
+        private void OnAddRowToFunctionTableCommandExecuted(object parameter)
+        {
+            Functions.Add(new Function(0, 0));
+        }
+
+        #endregion
 
         #endregion
 
