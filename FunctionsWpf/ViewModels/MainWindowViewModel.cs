@@ -38,6 +38,22 @@ namespace FunctionsWpf.ViewModels
         }
 
         /// <summary>
+        /// Присваивает переменной field значение value.
+        /// </summary>
+        /// <typeparam name="T">Тип параметров field и value.</typeparam>
+        /// <param name="field"></param>
+        /// <param name="value">Значение, которое необходимо присвоить field.</param>
+        /// <param name="property">Имя свойства.</param>
+        /// <returns>Возвращает false, если значение field равно value, иначе true.</returns>
+        protected bool Set<T>(T field, T value, [CallerMemberName] string property = null)
+        {
+            if (Equals(field, value)) return false;
+            field = value;
+            OnPropertyChanged(property);
+            return true;
+        }
+
+        /// <summary>
         /// Вызывает метод OnPropertyChanged для переданных свойств в properties.
         /// </summary>
         /// <param name=""></param>
