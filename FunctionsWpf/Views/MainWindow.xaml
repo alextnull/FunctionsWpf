@@ -32,9 +32,9 @@
             <Setter Property="MinHeight"
                     Value="24" />
         </Style>
-        
+
     </Window.Resources>
-    
+
     <Grid>
 
         <Grid.ColumnDefinitions>
@@ -73,13 +73,13 @@
                 <DockPanel Grid.Row="0">
                     <TextBlock Text="a" />
                     <TextBox x:Name="TextBoxA"
-                             Text="{Binding A}" />
+                             Text="{Binding A, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </DockPanel>
 
                 <DockPanel Grid.Row="1">
                     <TextBlock Text="b" />
                     <TextBox x:Name="TextBoxB"
-                             Text="{Binding B}" />
+                             Text="{Binding B, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </DockPanel>
 
                 <DockPanel Grid.Row="2">
