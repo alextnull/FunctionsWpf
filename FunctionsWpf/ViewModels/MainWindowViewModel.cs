@@ -36,6 +36,18 @@ namespace FunctionsWpf.ViewModels
             return true;
         }
 
+        /// <summary>
+        /// Вызывает метод OnPropertyChanged для переданных свойств в properties
+        /// </summary>
+        /// <param name=""></param>
+        protected void OnPropertiesChanged(params string[] properties)
+        {
+            foreach (string property in properties)
+            {
+                OnPropertyChanged(property);
+            }
+        }
+
         #endregion
 
         #region Индекс выбранной функции
