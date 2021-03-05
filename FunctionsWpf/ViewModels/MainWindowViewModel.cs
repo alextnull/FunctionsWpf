@@ -140,5 +140,14 @@ namespace FunctionsWpf.ViewModels
         }
 
         #endregion
+
+        #region Конструктор
+
+        public MainWindowViewModel()
+        {
+            CValues = new ObservableCollection<int>();
+        }
+
+        #endregion
     }
 }
