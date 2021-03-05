@@ -1,4 +1,6 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace FunctionsWpf.ViewModels
@@ -88,5 +90,21 @@ namespace FunctionsWpf.ViewModels
         }
 
         #endregion
+
+        #region Коллекция для хранения возможных значений коэффициента 'c'
+
+        private ObservableCollection<int> _cValues;
+
+        /// <summary>
+        /// Хранит возможные значения коэффициента 'c' для выбранной функции
+        /// </summary>
+        public ObservableCollection<int> CValues
+        {
+            get => _cValues;
+            set => Set(ref _cValues, value);
+        }
+
+        #endregion
+
     }
 }
