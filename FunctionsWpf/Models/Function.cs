@@ -71,7 +71,7 @@ namespace FunctionsWpf.Models
         /// <summary>
         /// Используется для указания типа функции
         /// </summary>
-        public enum Type { Linear, Quadratic, Cubic, FourthDegree, FiveDegree }
+        public enum FunctionType { Linear, Quadratic, Cubic, FourthDegree, FiveDegree }
 
         #endregion
 
