@@ -106,6 +106,25 @@ namespace FunctionsWpf.ViewModels
 
         #endregion
 
+        #region Коэффициент 'c'
+
+        /// <summary>
+        /// Хранит коэффициенты 'c' для каждой функции.
+        /// Элемент с индексом 0 представляет коэффициент 'c' линейной функции, 1 - квадратичной, ... , 4 -> 5-ой степени.
+        /// </summary>
+        private int[] _coefficientsC = new int[5];
+
+        /// <summary>
+        /// Хранит коэффициент 'c' для выбранной функции.
+        /// </summary>
+        public int C
+        {
+            get => _coefficientsC[CurrentFunction];
+            set => Set(ref _coefficientsC[CurrentFunction], value);
+        }
+
+        #endregion
+
         #region Методы
 
         /// <summary>
