@@ -54,6 +54,8 @@
         
         <converters:CalculateFunctionConverter x:Key="CalculateFunctionConvertor" />
 
+        <converters:NumberValidationConverter x:Key="ValidateNumberConvertor" />
+
     </Window.Resources>
 
     <Grid>
@@ -94,14 +96,14 @@
                 <DockPanel Grid.Row="0">
                     <TextBlock Text="a" />
                     <TextBox x:Name="TextBoxA"
-                             Text="{Binding A, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                             Text="{Binding A, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ValidateNumberConvertor}}" />
                 </DockPanel>
 
                 <DockPanel Grid.Row="1">
                     <TextBlock Text="b" />
                     <TextBox x:Name="TextBoxB"
                              MaxLength="11"
-                             Text="{Binding B, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                             Text="{Binding B, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ValidateNumberConvertor}}" />
                 </DockPanel>
 
                 <DockPanel Grid.Row="2">
@@ -151,7 +153,7 @@
 
                     <DataGridTextColumn Width="*"
                                         Header="x"
-                                        Binding="{Binding X, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                        Binding="{Binding X, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ValidateNumberConvertor}}">
                         
                         <DataGridTextColumn.EditingElementStyle>
                             <Style TargetType="TextBox">
@@ -164,7 +166,7 @@
                     
                     <DataGridTextColumn Width="*"
                                         Header="y"
-                                        Binding="{Binding Y, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                        Binding="{Binding Y, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ValidateNumberConvertor}}">
                         
                         <DataGridTextColumn.EditingElementStyle>
                             <Style TargetType="TextBox">
