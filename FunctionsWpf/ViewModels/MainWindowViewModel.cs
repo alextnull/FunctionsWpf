@@ -201,7 +201,7 @@ namespace FunctionsWpf.ViewModels
         /// <summary>
         /// Добавляет новую строку в таблицу с функциями
         /// </summary>
-        public ICommand AddRowToFunctionTableCommand;
+        public ICommand AddRowToFunctionTableCommand { get; set; }
 
         /// <summary>
         /// Добавляет новую строку в таблицу с функциями при вызове команды AddRowToFunctionTableCommand
