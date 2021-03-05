@@ -86,7 +86,7 @@
                     <TextBlock Text="c" />
                     <ComboBox x:Name="ListBoxC"
                               ItemsSource="{Binding CValues}"
-                              SelectedItem="{Binding CString}" />
+                              SelectedItem="{Binding C}" />
                 </DockPanel>
 
             </Grid>
