@@ -51,5 +51,19 @@ namespace FunctionsWpf.Models
 
         #endregion
 
+        #region Аргумент функции 'y'
+
+        private int _y;
+
+        /// <summary>
+        /// Хранит значение аргумента 'x' функции
+        /// </summary>
+        public int Y
+        {
+            get => _y;
+            set => Set(ref _y, value);
+        }
+
+        #endregion
     }
 }
