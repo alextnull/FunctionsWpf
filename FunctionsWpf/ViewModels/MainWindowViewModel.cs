@@ -146,6 +146,7 @@ namespace FunctionsWpf.ViewModels
         public MainWindowViewModel()
         {
             CValues = new ObservableCollection<int>();
+            ChangeCValues();
         }
 
         #endregion
