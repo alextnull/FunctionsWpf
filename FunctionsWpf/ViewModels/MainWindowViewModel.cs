@@ -161,8 +161,14 @@ namespace FunctionsWpf.ViewModels
 
         #region Коллекция для хранения функций
 
+        /// <summary>
+        /// Хранит коллекции аргументов функций для каждой выбранной функции
+        /// </summary>
         private ObservableCollection<ObservableCollection<Function>> _functions;
 
+        /// <summary>
+        /// Хранит функции (аргументы)
+        /// </summary>
         public ObservableCollection<Function> Functions
         {
             get => _functions[CurrentFunction];
