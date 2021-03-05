@@ -39,12 +39,12 @@ namespace FunctionsWpf.Models
 
         #region Аргумент функции 'x'
 
-        private int _x;
+        private double _x;
         
         /// <summary>
         /// Хранит значение аргумента 'x' функции
         /// </summary>
-        public int X
+        public double X
         {
             get => _x;
             set => Set(ref _x, value);
@@ -54,12 +54,12 @@ namespace FunctionsWpf.Models
 
         #region Аргумент функции 'y'
 
-        private int _y;
+        private double _y;
 
         /// <summary>
         /// Хранит значение аргумента 'x' функции
         /// </summary>
-        public int Y
+        public double Y
         {
             get => _y;
             set => Set(ref _y, value);
@@ -98,10 +98,10 @@ namespace FunctionsWpf.Models
         /// <param name="c">Коэффициент функции 'c'</param>
         /// <param name="functionType">Тип функции</param>
         /// <returns>Возвращает значение функции</returns>
-        public long Calculate(int a, int b, int c, FunctionType functionType)
+        public double Calculate(double a, double b, int c, FunctionType functionType)
         {
             int powerNumber = (int)functionType + 1;
-            long function = a * (long)Math.Pow(X, powerNumber) + b * (long)Math.Pow(Y, powerNumber - 1) + c;
+            double function = a * Math.Pow(X, powerNumber) + b * Math.Pow(Y, powerNumber - 1) + c;
             return function;
         }
 
@@ -114,7 +114,7 @@ namespace FunctionsWpf.Models
         /// </summary>
         /// <param name="x">Аргумент функции 'x'</param>
         /// <param name="y">Аргумент функции 'y'</param>
-        public Function(int x, int y)
+        public Function(double x = 0 , double y = 0)
         {
             X = x;
             Y = y;

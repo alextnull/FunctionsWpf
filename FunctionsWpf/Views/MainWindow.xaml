@@ -32,8 +32,6 @@
         <Style TargetType="TextBox">
             <Setter Property="MinHeight"
                     Value="24" />
-            <Setter Property="MaxLength"
-                    Value="11" />
         </Style>
 
         <Style TargetType="ComboBox">
@@ -53,8 +51,6 @@
         </Style>
         
         <converters:CalculateFunctionConverter x:Key="CalculateFunctionConvertor" />
-
-        <converters:NumberValidationConverter x:Key="ValidateNumberConvertor" />
 
     </Window.Resources>
 
@@ -96,14 +92,13 @@
                 <DockPanel Grid.Row="0">
                     <TextBlock Text="a" />
                     <TextBox x:Name="TextBoxA"
-                             Text="{Binding A, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ValidateNumberConvertor}}" />
+                             Text="{Binding A, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat=N2}" />
                 </DockPanel>
 
                 <DockPanel Grid.Row="1">
                     <TextBlock Text="b" />
                     <TextBox x:Name="TextBoxB"
-                             MaxLength="11"
-                             Text="{Binding B, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ValidateNumberConvertor}}" />
+                             Text="{Binding B, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat=N2}" />
                 </DockPanel>
 
                 <DockPanel Grid.Row="2">
@@ -153,29 +148,11 @@
 
                     <DataGridTextColumn Width="*"
                                         Header="x"
-                                        Binding="{Binding X, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ValidateNumberConvertor}}">
-                        
-                        <DataGridTextColumn.EditingElementStyle>
-                            <Style TargetType="TextBox">
-                                <Setter Property="MaxLength"
-                                        Value="11" />
-                            </Style>
-                        </DataGridTextColumn.EditingElementStyle>
-                        
-                    </DataGridTextColumn>
-                    
+                                        Binding="{Binding X, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat=N2}" />
+
                     <DataGridTextColumn Width="*"
                                         Header="y"
-                                        Binding="{Binding Y, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ValidateNumberConvertor}}">
-                        
-                        <DataGridTextColumn.EditingElementStyle>
-                            <Style TargetType="TextBox">
-                                <Setter Property="MaxLength"
-                                        Value="11" />
-                            </Style>
-                        </DataGridTextColumn.EditingElementStyle>
-                        
-                    </DataGridTextColumn>
+                                        Binding="{Binding Y, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat=N2}" />
                 </DataGrid.Columns>
             </DataGrid>
 

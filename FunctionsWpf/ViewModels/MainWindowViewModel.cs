@@ -95,12 +95,12 @@ namespace FunctionsWpf.ViewModels
         /// Хранит коэффициенты 'a' для каждой функции.
         /// Элемент с индексом 0 представляет коэффициент 'a' линейной функции, 1 - квадратичной, ... , 4 -> 5-ой степени.
         /// </summary>
-        private int[] _coefficientsA = new int[5];
+        private double[] _coefficientsA = new double[5];
 
         /// <summary>
         /// Хранит коэффициент 'a' для выбранной функции.
         /// </summary>
-        public int A
+        public double A
         {
             get => _coefficientsA[CurrentFunction];
             set => Set(ref _coefficientsA[CurrentFunction], value);
@@ -114,12 +114,12 @@ namespace FunctionsWpf.ViewModels
         /// Хранит коэффициенты 'b' для каждой функции.
         /// Элемент с индексом 0 представляет коэффициент 'b' линейной функции, 1 - квадратичной, ... , 4 -> 5-ой степени.
         /// </summary>
-        private int[] _coefficientsB = new int[5];
+        private double[] _coefficientsB = new double[5];
 
         /// <summary>
         /// Хранит коэффициент 'b' для выбранной функции.
         /// </summary>
-        public int B
+        public double B
         {
             get => _coefficientsB[CurrentFunction];
             set => Set(ref _coefficientsB[CurrentFunction], value);
