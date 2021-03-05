@@ -154,7 +154,8 @@
 
             <Button x:Name="ButtonAddRow"
                     Grid.Row="1"
-                    Content="Добавить строку" />
+                    Content="Добавить строку" 
+                    Command="{Binding AddRowToFunctionTableCommand}"/>
 
         </Grid>
 
