@@ -79,7 +79,7 @@ namespace FunctionsWpf.Models
         /// </summary>
         /// <param name="index"></param>
         /// <returns></returns>
-        public FunctionType GetFunctionTypeFromIndex(int index)
+        public static FunctionType GetFunctionTypeFromIndex(int index)
         {
             if (index < 0 || index > 4)
                 throw new ArgumentException();
