@@ -37,7 +37,7 @@ namespace FunctionsWpf.ViewModels
         }
 
         /// <summary>
-        /// Вызывает метод OnPropertyChanged для переданных свойств в properties
+        /// Вызывает метод OnPropertyChanged для переданных свойств в properties.
         /// </summary>
         /// <param name=""></param>
         protected void OnPropertiesChanged(params string[] properties)
@@ -113,7 +113,7 @@ namespace FunctionsWpf.ViewModels
         private ObservableCollection<int> _cValues;
 
         /// <summary>
-        /// Хранит возможные значения коэффициента 'c' для выбранной функции
+        /// Хранит возможные значения коэффициента 'c' для выбранной функции.
         /// </summary>
         public ObservableCollection<int> CValues
         {
@@ -145,12 +145,12 @@ namespace FunctionsWpf.ViewModels
         #region Методы
 
         /// <summary>
-        /// Изменяет коллекцию CValues в зависимости от выбранной функции
+        /// Изменяет коллекцию CValues в зависимости от выбранной функции.
         /// </summary>
         private void ChangeCValues()
         {
             CValues.Clear();
-            for (int i = 0; i < 5; i++)
+            for (var i = 0; i < 5; i++)
             {
                 CValues.Add((i + 1) * (int)Math.Pow(10, CurrentFunction));
             }
