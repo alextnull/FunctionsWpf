@@ -106,5 +106,20 @@ namespace FunctionsWpf.Models
         }
 
         #endregion
+
+        #region Конструктор
+
+        /// <summary>
+        /// Инициализирует аргументы функции 'x' и 'y'
+        /// </summary>
+        /// <param name="x">Аргумент функции 'x'</param>
+        /// <param name="y">Аргумент функции 'y'</param>
+        public Function(int x, int y)
+        {
+            X = x;
+            Y = y;
+        }
+
+        #endregion
     }
 }
