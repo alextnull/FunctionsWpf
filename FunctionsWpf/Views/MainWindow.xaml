@@ -14,7 +14,7 @@
     <Window.DataContext>
         <vm:MainWindowViewModel />
     </Window.DataContext>
-    
+
     <Window.Resources>
 
         <Style TargetType="DockPanel">
@@ -50,7 +50,8 @@
                     Value="Left" />
         </Style>
 
-        <converters:CalculateFunctionConverter x:Key="CalculateFunctionConvertor"/>
+        <converters:CalculateFunctionConverter x:Key="CalculateFunctionConvertor" />
+
     </Window.Resources>
 
     <Grid>
@@ -144,7 +145,7 @@
                             </MultiBinding>
                         </DataGridTextColumn.Binding>
                     </DataGridTextColumn>
-                    
+
                     <DataGridTextColumn Width="*"
                                         Header="x"
                                         Binding="{Binding X, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
@@ -156,8 +157,8 @@
 
             <Button x:Name="ButtonAddRow"
                     Grid.Row="1"
-                    Content="Добавить строку" 
-                    Command="{Binding AddRowToFunctionTableCommand}"/>
+                    Content="Добавить строку"
+                    Command="{Binding AddRowToFunctionTableCommand}" />
 
         </Grid>
 
