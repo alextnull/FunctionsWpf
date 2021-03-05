@@ -106,5 +106,20 @@ namespace FunctionsWpf.ViewModels
 
         #endregion
 
+        #region Методы
+
+        /// <summary>
+        /// Изменяет коллекцию CValues в зависимости от выбранной функции
+        /// </summary>
+        private void ChangeCValues()
+        {
+            CValues.Clear();
+            for (int i = 0; i < 5; i++)
+            {
+                CValues.Add((i + 1) * (int)Math.Pow(10, CurrentFunction));
+            }
+        }
+
+        #endregion
     }
 }
