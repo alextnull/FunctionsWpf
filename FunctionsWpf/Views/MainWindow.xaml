@@ -131,7 +131,7 @@
                                         Header="f(x, y)"
                                         IsReadOnly="True">
                         <DataGridTextColumn.Binding>
-                            <MultiBinding Converter="{StaticResource CalculateFunctionConvertor}" StringFormat="N2">
+                            <MultiBinding Converter="{StaticResource CalculateFunctionConvertor}">
                                 <Binding Path="DataContext.A"
                                          RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=Window}" />
                                 <Binding Path="DataContext.B"
