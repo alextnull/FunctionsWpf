@@ -88,6 +88,20 @@ namespace FunctionsWpf.Models
 
         #endregion
 
+        /// <summary>
+        /// Вычисляет значение функции в зависимости от параметра functionType
+        /// </summary>
+        /// <param name="a">Коэффициент функции 'a'</param>
+        /// <param name="b">Коэффициент функции 'b'</param>
+        /// <param name="c">Коэффициент функции 'c'</param>
+        /// <param name="functionType">Тип функции</param>
+        /// <returns>Возвращает значение функции</returns>
+        public long Calculate(int a, int b, int c, FunctionType functionType)
+        {
+            int powerNumber = (int)functionType + 1;
+            long function = a * (long)Math.Pow(X, powerNumber) + b * (long)Math.Pow(Y, powerNumber - 1) + c;
+            return function;
+        }
 
     }
 }
