@@ -60,7 +60,12 @@ namespace FunctionsWpf.ViewModels
         public int CurrentFunction
         {
             get => _currentFunction;
-            set => Set(ref _currentFunction, value);
+            set
+            {
+                Set(ref _currentFunction, value);
+                ChangeCValues();
+                OnPropertiesChanged("A", "B", "C", "CValues");
+            }
         }
 
         #endregion
