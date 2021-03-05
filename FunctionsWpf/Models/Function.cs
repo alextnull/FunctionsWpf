@@ -65,5 +65,16 @@ namespace FunctionsWpf.Models
         }
 
         #endregion
+
+        #region Перечисление для указания типа функции
+
+        /// <summary>
+        /// Используется для указания типа функции
+        /// </summary>
+        public enum Type { Linear, Quadratic, Cubic, FourthDegree, FiveDegree }
+
+        #endregion
+
+
     }
 }
