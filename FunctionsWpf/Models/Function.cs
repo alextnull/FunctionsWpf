@@ -88,6 +88,8 @@ namespace FunctionsWpf.Models
 
         #endregion
 
+        #region Методы
+
         /// <summary>
         /// Вычисляет значение функции в зависимости от параметра functionType
         /// </summary>
@@ -103,5 +105,6 @@ namespace FunctionsWpf.Models
             return function;
         }
 
+        #endregion
     }
 }
