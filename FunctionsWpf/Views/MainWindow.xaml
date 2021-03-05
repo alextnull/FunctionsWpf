@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FunctionsWpf"
         xmlns:vm="clr-namespace:FunctionsWpf.ViewModels"
+        xmlns:converters="clr-namespace:FunctionsWpf.Infrastructure.Converters"
         mc:Ignorable="d"
         Title="MainWindow"
         Height="450"
@@ -48,7 +49,8 @@
             <Setter Property="HorizontalAlignment"
                     Value="Left" />
         </Style>
-        
+
+        <converters:CalculateFunctionConverter x:Key="CalculateFunctionConvertor"/>
     </Window.Resources>
 
     <Grid>
@@ -125,7 +127,22 @@
                       ItemsSource="{Binding Functions}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Width="*"
-                                        Header="f(x, y)" />
+                                        Header="f(x, y)"
+                                        IsReadOnly="True">
+                        <DataGridTextColumn.Binding>
+                            <MultiBinding Converter="{StaticResource CalculateFunctionConvertor}">
+                                <Binding Path="Data.Context.A"
+                                         RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=Window}" />
+                                <Binding Path="Data.Context.B"
+                                         RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=Window}" />
+                                <Binding Path="Data.Context.C"
+                                         RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=Window}" />
+                                <Binding Path="X" />
+                                <Binding Path="Y" />
+                            </MultiBinding>
+                        </DataGridTextColumn.Binding>
+                    </DataGridTextColumn>
+                    
                     <DataGridTextColumn Width="*"
                                         Header="x"
                                         Binding="{Binding X, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
