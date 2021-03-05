@@ -192,6 +192,12 @@ namespace FunctionsWpf.ViewModels
         {
             CValues = new ObservableCollection<int>();
             ChangeCValues();
+
+            _functions = new ObservableCollection<ObservableCollection<Function>>();
+            for (var i = 0; i < 5; i++)
+            {
+                _functions.Add(new ObservableCollection<Function>());
+            }
         }
 
         #endregion
