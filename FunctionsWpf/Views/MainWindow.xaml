@@ -32,6 +32,8 @@
         <Style TargetType="TextBox">
             <Setter Property="MinHeight"
                     Value="24" />
+            <Setter Property="MaxLength"
+                    Value="11" />
         </Style>
 
         <Style TargetType="ComboBox">
@@ -49,7 +51,7 @@
             <Setter Property="HorizontalAlignment"
                     Value="Left" />
         </Style>
-
+        
         <converters:CalculateFunctionConverter x:Key="CalculateFunctionConvertor" />
 
     </Window.Resources>
@@ -98,6 +100,7 @@
                 <DockPanel Grid.Row="1">
                     <TextBlock Text="b" />
                     <TextBox x:Name="TextBoxB"
+                             MaxLength="11"
                              Text="{Binding B, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </DockPanel>
 
@@ -148,10 +151,29 @@
 
                     <DataGridTextColumn Width="*"
                                         Header="x"
-                                        Binding="{Binding X, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                        Binding="{Binding X, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        
+                        <DataGridTextColumn.EditingElementStyle>
+                            <Style TargetType="TextBox">
+                                <Setter Property="MaxLength"
+                                        Value="11" />
+                            </Style>
+                        </DataGridTextColumn.EditingElementStyle>
+                        
+                    </DataGridTextColumn>
+                    
                     <DataGridTextColumn Width="*"
                                         Header="y"
-                                        Binding="{Binding Y, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                        Binding="{Binding Y, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        
+                        <DataGridTextColumn.EditingElementStyle>
+                            <Style TargetType="TextBox">
+                                <Setter Property="MaxLength"
+                                        Value="11" />
+                            </Style>
+                        </DataGridTextColumn.EditingElementStyle>
+                        
+                    </DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
 
