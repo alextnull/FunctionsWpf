@@ -19,7 +19,7 @@ namespace FunctionsWpf.Infrastructure.Converters
 
             Function function = new Function(x, y);
             long functionValue = function.Calculate(a, b, c, functionType);
-            return functionValue;
+            return functionValue.ToString();
         }
 
         public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
