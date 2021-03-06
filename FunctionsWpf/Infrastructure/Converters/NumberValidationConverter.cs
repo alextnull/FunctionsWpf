@@ -7,28 +7,34 @@ namespace FunctionsWpf.Infrastructure.Converters
 {
     internal class NumberValidationConverter : IValueConverter
     {
+        /// <summary>
+        /// Хранит предыдущее значение числа. 
+        /// </summary>
+        private static double previousNumber = 0;
+
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             return value;
         }
 
         /// <summary>
-        /// Преобразовывает некорректный ввод числа в корректный.
+        /// Преобразовывает некорректный ввод числа в корректный. В случае ошибки преобразования возвращает предыдущее число.
         /// </summary>
         /// <param name="value"></param>
         /// <param name="targetType"></param>
         /// <param name="parameter"></param>
         /// <param name="culture"></param>
-        /// <returns></returns>
+        /// <returns>Возвращает корректное число</returns>
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             try
             {
                 string numberString = value.ToString();
-                numberString = Regex.Replace(numberString, "[^-0-9]", string.Empty);
+                numberString = Regex.Replace(numberString, "[^-\\.0-9]", string.Empty);
 
                 if (numberString.Length == 0)
                 {
+                    previousNumber = 0;
                     return 0;
                 }
 
@@ -37,25 +43,28 @@ namespace FunctionsWpf.Infrastructure.Converters
                     numberString = "-" + numberString.Replace("-", "");
                 }
 
-                long number = System.Convert.ToInt64(numberString);
-                if (number > int.MaxValue)
+                double number = System.Convert.ToDouble(numberString, CultureInfo.InvariantCulture);
+                previousNumber = number;
+
+                if (double.IsPositiveInfinity(number))
                 {
-                    return int.MaxValue;
+                    return double.MaxValue;
                 }
-                else if (number < int.MinValue)
+                else if (double.IsNegativeInfinity(number))
                 {
-                    return int.MinValue;
+                    return double.MinValue;
                 }
                 else
                 {
-                    return System.Convert.ToInt32(numberString);
+                    return number;
                 }
             }
             catch
             {
-                return 0;
+                return previousNumber;
             }
 
         }
+
     }
 }
