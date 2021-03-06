@@ -51,5 +51,28 @@ namespace FunctionWpfTests
 
             Assert.IsTrue(isExpectedFunctionResult);
         }
+
+        [DataTestMethod]
+        [DataRow(0, 0, 100, 0, 0, 100)]
+        [DataRow(1, 1, 200, 1, 1, 202)]
+        [DataRow(-1, -1, 300, -1, -1, 300)]
+        [DataRow(100, 50, 400, 2550, 13, 1658137508850)]
+        [DataRow(1.13, 1.99, 300, 70.15, 1.1, 390389.40)]
+        [DataRow(-1.1, -1.1, 100, -1.1, -1.1, 100.13)]
+        [DataRow(-90000.1, 25.13, 200, 92234, -1.1, -7.061811527668671E+19)]
+        [DataRow(1.25, 3.45, 400, double.MinValue, double.MinValue, double.NaN)]
+        [DataRow(double.MaxValue, double.MaxValue, 400, double.MaxValue, double.MaxValue, double.PositiveInfinity)]
+        [DataRow(double.MinValue, double.MinValue, 300, double.MinValue, double.MinValue, double.NaN)]
+        public void Test_CubicFunctionCalculation_Validate(double a, double b, int c, double x, double y, double expected)
+        {
+            Function function = new Function(x, y);
+
+            double functionResult = function.Calculate(a, b, c, Function.FunctionType.Cubic);
+            bool isExpectedFunctionResult = functionResult.CompareTo(expected) == 0
+                            ? true
+                            : false;
+
+            Assert.IsTrue(isExpectedFunctionResult);
+        }
     }
 }
