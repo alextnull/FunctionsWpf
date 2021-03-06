@@ -24,8 +24,8 @@ namespace FunctionWpfTests
 
             double functionResult = function.Calculate(a, b, c, Function.FunctionType.Linear);
             bool isExpectedFunctionResult = functionResult.CompareTo(expected) == 0
-                            ? true
-                            : false;
+                                            ? true
+                                            : false;
 
             Assert.IsTrue(isExpectedFunctionResult);
         }
@@ -46,8 +46,8 @@ namespace FunctionWpfTests
 
             double functionResult = function.Calculate(a, b, c, Function.FunctionType.Quadratic);
             bool isExpectedFunctionResult = functionResult.CompareTo(expected) == 0
-                            ? true
-                            : false;
+                                            ? true
+                                            : false;
 
             Assert.IsTrue(isExpectedFunctionResult);
         }
@@ -69,8 +69,8 @@ namespace FunctionWpfTests
 
             double functionResult = function.Calculate(a, b, c, Function.FunctionType.Cubic);
             bool isExpectedFunctionResult = functionResult.CompareTo(expected) == 0
-                            ? true
-                            : false;
+                                            ? true
+                                            : false;
 
             Assert.IsTrue(isExpectedFunctionResult);
         }
@@ -92,8 +92,8 @@ namespace FunctionWpfTests
 
             double functionResult = function.Calculate(a, b, c, Function.FunctionType.FourthDegree);
             bool isExpectedFunctionResult = functionResult.CompareTo(expected) == 0
-                            ? true
-                            : false;
+                                            ? true
+                                            : false;
 
             Assert.IsTrue(isExpectedFunctionResult);
         }
@@ -113,8 +113,8 @@ namespace FunctionWpfTests
 
             double functionResult = function.Calculate(a, b, c, Function.FunctionType.FiveDegree);
             bool isExpectedFunctionResult = functionResult.CompareTo(expected) == 0
-                            ? true
-                            : false;
+                                            ? true
+                                            : false;
 
             Assert.IsTrue(isExpectedFunctionResult);
         }
