@@ -47,9 +47,9 @@ namespace FunctionsWpf.Infrastructure.Converters
                     return 0;
                 }
 
-                if (numberString[0].Equals('-'))
+                if (numberString[0] == '-')
                 {
-                    numberString = "-" + numberString.Replace("-", "");
+                    numberString = $"-{numberString.Replace("-", "")}";
                 }
 
                 double number = System.Convert.ToDouble(numberString, CultureInfo.InvariantCulture);
@@ -63,10 +63,8 @@ namespace FunctionsWpf.Infrastructure.Converters
                 {
                     return double.MinValue;
                 }
-                else
-                {
-                    return number;
-                }
+
+                return number;
             }
             catch
             {
