@@ -58,7 +58,9 @@
     <Grid>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="2*" 
+                              MinWidth="120"/>
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="5*" />
         </Grid.ColumnDefinitions>
 
@@ -71,7 +73,7 @@
 
             <ListBox x:Name="ListBoxFunctions"
                      Grid.Row="0"
-                     Margin="15"
+                     Margin="15, 15, 10, 15"
                      SelectedIndex="{Binding CurrentFunction}">
                 <ListBoxItem Content="линейная" />
                 <ListBoxItem Content="квадратичная" />
@@ -82,7 +84,7 @@
 
             <Grid x:Name="GridCoefficients"
                   Grid.Row="1"
-                  Margin="15, 0, 15, 15">
+                  Margin="15, 0, 10, 15">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -113,7 +115,13 @@
 
         </Grid>
 
-        <Grid Grid.Column="1">
+        <GridSplitter Grid.Column="1"
+                      ShowsPreview="False"
+                      Width="5"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Stretch" />
+
+        <Grid Grid.Column="2">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="100*" />
@@ -124,7 +132,7 @@
                       Grid.Row="0"
                       AutoGenerateColumns="False"
                       MinHeight="60"
-                      Margin="0, 15, 15, 0"
+                      Margin="10, 15, 15, 0"
                       CanUserAddRows="True"
                       ItemsSource="{Binding Functions}">
                 <DataGrid.Columns>
