@@ -74,5 +74,28 @@ namespace FunctionWpfTests
 
             Assert.IsTrue(isExpectedFunctionResult);
         }
+
+        [DataTestMethod]
+        [DataRow(0, 0, 1000, 0, 0, 1000)]
+        [DataRow(1, 1, 2000, 1, 1, 2002)]
+        [DataRow(-1, -1, 3000, -1, -1, 3000)]
+        [DataRow(70, 50, 5000, 16650, 13, 5.379662015437615E+18)]
+        [DataRow(1.13, 1.99, 3000, 70.15, 1.1, 27367605.21)]
+        [DataRow(-1.1, -1.1, 1000, -1.1, -1.1, 999.85)]
+        [DataRow(-90000.1, 25.13, 2000, 92234, -1.1, -6.513391244429921E+24)]
+        [DataRow(1.25, 3.45, 4000, double.MinValue, double.MinValue, double.NaN)]
+        [DataRow(double.MaxValue, double.MaxValue, 400, double.MaxValue, double.MaxValue, double.PositiveInfinity)]
+        [DataRow(double.MinValue, double.MinValue, 300, double.MinValue, double.MinValue, double.NaN)]
+        public void Test_FourthDegreeFunctionCalculation_Validate(double a, double b, int c, double x, double y, double expected)
+        {
+            Function function = new Function(x, y);
+
+            double functionResult = function.Calculate(a, b, c, Function.FunctionType.FourthDegree);
+            bool isExpectedFunctionResult = functionResult.CompareTo(expected) == 0
+                            ? true
+                            : false;
+
+            Assert.IsTrue(isExpectedFunctionResult);
+        }
     }
 }
