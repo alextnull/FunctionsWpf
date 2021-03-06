@@ -19,7 +19,7 @@ namespace FunctionsWpf.Infrastructure.Converters
 
             Function function = new Function(x, y);
             double functionValue = function.Calculate(a, b, c, functionType);
-            return functionValue.ToString("N2", CultureInfo.InvariantCulture);
+            return functionValue.ToString("0.00", CultureInfo.InvariantCulture);
         }
 
         public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
