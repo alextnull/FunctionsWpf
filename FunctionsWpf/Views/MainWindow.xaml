@@ -155,11 +155,11 @@
                         </DataGridTextColumn.Binding>
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Width="*"
+                    <DataGridTextColumn Width="0.5*"
                                         Header="x"
                                         Binding="{Binding X, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0.00}, Converter={StaticResource NumberValidationConvertor}}" />
 
-                    <DataGridTextColumn Width="*"
+                    <DataGridTextColumn Width="0.5*"
                                         Header="y"
                                         Binding="{Binding Y, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0.00}, Converter={StaticResource NumberValidationConvertor}}" />
                 </DataGrid.Columns>
