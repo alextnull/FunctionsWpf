@@ -18,17 +18,26 @@ namespace FunctionsWpf.Infrastructure.Converters
         /// <returns>Возвращает значение функции в строковом виде.</returns>
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
-            double a = double.Parse(values[0].ToString());
-            double b = double.Parse(values[1].ToString());
-            int c = int.Parse(values[2].ToString());
-            double x = double.Parse(values[3].ToString());
-            double y = double.Parse(values[4].ToString());
-            int functionIndex = int.Parse(values[5].ToString());
-            Function.FunctionType functionType = Function.GetFunctionTypeFromIndex(functionIndex);
+            try
+            {
+                double a = double.Parse(values[0].ToString());
+                double b = double.Parse(values[1].ToString());
+                int c = int.Parse(values[2].ToString());
+                double x = double.Parse(values[3].ToString());
+                double y = double.Parse(values[4].ToString());
+                int functionIndex = int.Parse(values[5].ToString());
+                Function.FunctionType functionType = Function.GetFunctionTypeFromIndex(functionIndex);
 
-            Function function = new Function(x, y);
-            double functionValue = function.Calculate(a, b, c, functionType);
-            return functionValue.ToString("0.00", CultureInfo.InvariantCulture);
+                Function function = new Function(x, y);
+                double functionValue = function.Calculate(a, b, c, functionType);
+                return functionValue.ToString("0.00", CultureInfo.InvariantCulture);
+            }
+            catch 
+            {
+                return double.NaN;
+            }
+
+            
         }
 
         /// <summary>
