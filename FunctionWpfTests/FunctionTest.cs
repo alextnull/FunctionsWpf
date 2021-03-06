@@ -97,5 +97,26 @@ namespace FunctionWpfTests
 
             Assert.IsTrue(isExpectedFunctionResult);
         }
+
+        [DataTestMethod]
+        [DataRow(0, 0, 10000, 0, 0, 10000)]
+        [DataRow(1, 1, 20000, 1, 1, 20002)]
+        [DataRow(-1, -1, 30000, -1, -1, 30000)]
+        [DataRow(700, 500, 50000, 16650, 13, 8.957137255703437E+23)]
+        [DataRow(35.13, 100.99, 3000, 156.99, 1.1, 3349948245288.4)]
+        [DataRow(1.25, 3.45, 4000, double.MinValue, double.MinValue, double.NaN)]
+        [DataRow(double.MaxValue, double.MaxValue, 400, double.MaxValue, double.MaxValue, double.PositiveInfinity)]
+        [DataRow(double.MinValue, double.MinValue, 300, double.MinValue, double.MinValue, double.NaN)]
+        public void Test_FiveDegreeFunctionCalculation_Validate(double a, double b, int c, double x, double y, double expected)
+        {
+            Function function = new Function(x, y);
+
+            double functionResult = function.Calculate(a, b, c, Function.FunctionType.FiveDegree);
+            bool isExpectedFunctionResult = functionResult.CompareTo(expected) == 0
+                            ? true
+                            : false;
+
+            Assert.IsTrue(isExpectedFunctionResult);
+        }
     }
 }
