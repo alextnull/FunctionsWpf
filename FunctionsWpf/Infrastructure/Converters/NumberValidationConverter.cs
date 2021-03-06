@@ -5,13 +5,26 @@ using System.Windows.Data;
 
 namespace FunctionsWpf.Infrastructure.Converters
 {
+    /// <summary>
+    /// Конвертер для корректировки пользовательского ввода чисел
+    /// </summary>
     internal class NumberValidationConverter : IValueConverter
     {
+        #region Поля
+
         /// <summary>
         /// Хранит предыдущее значение числа. 
         /// </summary>
         private static double previousNumber = 0;
 
+        #endregion
+
+        #region Методы
+
+        /// <summary>
+        /// Возвращает переданное значение без изменений.
+        /// </summary>
+        /// <returns>Возвращает value.</returns>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             return value;
@@ -20,11 +33,7 @@ namespace FunctionsWpf.Infrastructure.Converters
         /// <summary>
         /// Преобразовывает некорректный ввод числа в корректный. В случае ошибки преобразования возвращает предыдущее число.
         /// </summary>
-        /// <param name="value"></param>
-        /// <param name="targetType"></param>
-        /// <param name="parameter"></param>
-        /// <param name="culture"></param>
-        /// <returns>Возвращает корректное число</returns>
+        /// <returns>Возвращает корректное число типа double.</returns>
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             try
@@ -63,8 +72,8 @@ namespace FunctionsWpf.Infrastructure.Converters
             {
                 return previousNumber;
             }
-
         }
 
+        #endregion
     }
 }

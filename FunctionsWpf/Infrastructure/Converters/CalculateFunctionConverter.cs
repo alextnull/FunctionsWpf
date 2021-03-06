@@ -5,8 +5,17 @@ using System.Windows.Data;
 
 namespace FunctionsWpf.Infrastructure.Converters
 {
+    /// <summary>
+    /// Конвертер для расчёта значения функции
+    /// </summary>
     internal class CalculateFunctionConverter : IMultiValueConverter
     {
+        #region Методы
+
+        /// <summary>
+        /// Рассчитывает значение функции и привязывает его к необходимому объекту.
+        /// </summary>
+        /// <returns>Возвращает значение функции в строковом виде.</returns>
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
             double a = double.Parse(values[0].ToString());
@@ -22,9 +31,14 @@ namespace FunctionsWpf.Infrastructure.Converters
             return functionValue.ToString("0.00", CultureInfo.InvariantCulture);
         }
 
+        /// <summary>
+        /// Не релизовано.
+        /// </summary>
         public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }
+
+        #endregion
     }
 }

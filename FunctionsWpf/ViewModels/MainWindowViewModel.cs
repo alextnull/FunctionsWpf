@@ -8,6 +8,9 @@ using System.Windows.Input;
 
 namespace FunctionsWpf.ViewModels
 {
+    /// <summary>
+    /// Вью-модель главного окна приложения
+    /// </summary>
     internal class MainWindowViewModel : INotifyPropertyChanged
     {
         #region Реализация интерфейса INotifyPropertyChanged
@@ -58,7 +61,6 @@ namespace FunctionsWpf.ViewModels
         /// <summary>
         /// Вызывает метод OnPropertyChanged для переданных свойств в properties.
         /// </summary>
-        /// <param name=""></param>
         protected void OnPropertiesChanged(params string[] properties)
         {
             foreach (string property in properties)
@@ -164,12 +166,12 @@ namespace FunctionsWpf.ViewModels
         #region Коллекция для хранения функций
 
         /// <summary>
-        /// Хранит коллекции аргументов функций для каждой выбранной функции
+        /// Хранит коллекции функций для каждой выбранной функции(в списке).
         /// </summary>
         private ObservableCollection<ObservableCollection<Function>> _functions;
 
         /// <summary>
-        /// Хранит функции (аргументы)
+        /// Хранит функции.
         /// </summary>
         public ObservableCollection<Function> Functions
         {
@@ -199,14 +201,14 @@ namespace FunctionsWpf.ViewModels
         #region Add Row To Function Table Command
 
         /// <summary>
-        /// Добавляет новую строку в таблицу с функциями
+        /// Добавляет новую строку в таблицу с функциями.
         /// </summary>
         public ICommand AddRowToFunctionTableCommand { get; set; }
 
         /// <summary>
-        /// Добавляет новую строку в таблицу с функциями при вызове команды AddRowToFunctionTableCommand
+        /// Добавляет новую строку в таблицу с функциями при вызове команды AddRowToFunctionTableCommand.
         /// </summary>
-        /// <param name="parameter"></param>
+        /// <param name="parameter">Параметр команды.</param>
         private void OnAddRowToFunctionTableCommandExecuted(object parameter)
         {
             Functions.Add(new Function(0, 0));
@@ -219,7 +221,7 @@ namespace FunctionsWpf.ViewModels
         #region Методы инициализации 
 
         /// <summary>
-        /// Инициализирует команды
+        /// Инициализирует команды.
         /// </summary>
         private void InitializeCommands()
         {
@@ -227,7 +229,7 @@ namespace FunctionsWpf.ViewModels
         }
 
         /// <summary>
-        /// Инициализирует коллекции
+        /// Инициализирует коллекции.
         /// </summary>
         private void InitializeCollections()
         {
@@ -245,6 +247,9 @@ namespace FunctionsWpf.ViewModels
 
         #region Конструктор
 
+        /// <summary>
+        /// Инициализирует команды и коллекции.
+        /// </summary>
         public MainWindowViewModel()
         {
             InitializeCollections();
@@ -252,7 +257,5 @@ namespace FunctionsWpf.ViewModels
         }
 
         #endregion
-
-
     }
 }

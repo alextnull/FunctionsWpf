@@ -4,6 +4,9 @@ using System.Runtime.CompilerServices;
 
 namespace FunctionsWpf.Models
 {
+    /// <summary>
+    /// Класс для описания модели функции
+    /// </summary>
     public class Function : INotifyPropertyChanged
     {
         #region Реализация интерфейса INotifyPropertyChanged
@@ -42,7 +45,7 @@ namespace FunctionsWpf.Models
         private double _x;
         
         /// <summary>
-        /// Хранит значение аргумента 'x' функции
+        /// Хранит значение аргумента 'x' функции.
         /// </summary>
         public double X
         {
@@ -57,7 +60,7 @@ namespace FunctionsWpf.Models
         private double _y;
 
         /// <summary>
-        /// Хранит значение аргумента 'x' функции
+        /// Хранит значение аргумента 'x' функции.
         /// </summary>
         public double Y
         {
@@ -70,15 +73,13 @@ namespace FunctionsWpf.Models
         #region Перечисление для указания типа функции
 
         /// <summary>
-        /// Используется для указания типа функции
+        /// Используется для указания типа функции.
         /// </summary>
         public enum FunctionType { Linear, Quadratic, Cubic, FourthDegree, FiveDegree }
 
         /// <summary>
-        /// Возвращает тип функции с помощь индекса
+        /// Возвращает тип функции с помощь индекса.
         /// </summary>
-        /// <param name="index"></param>
-        /// <returns></returns>
         public static FunctionType GetFunctionTypeFromIndex(int index)
         {
             if (index < 0 || index > 4)
@@ -91,13 +92,13 @@ namespace FunctionsWpf.Models
         #region Методы
 
         /// <summary>
-        /// Вычисляет значение функции в зависимости от параметра functionType
+        /// Вычисляет значение функции. Параметр functionType задаёт тип функции - линейная, квадратичная, ... , 5-й степени.
         /// </summary>
-        /// <param name="a">Коэффициент функции 'a'</param>
-        /// <param name="b">Коэффициент функции 'b'</param>
-        /// <param name="c">Коэффициент функции 'c'</param>
-        /// <param name="functionType">Тип функции</param>
-        /// <returns>Возвращает значение функции</returns>
+        /// <param name="a">Коэффициент функции 'a'.</param>
+        /// <param name="b">Коэффициент функции 'b'.</param>
+        /// <param name="c">Коэффициент функции 'c'.</param>
+        /// <param name="functionType">Тип функции.</param>
+        /// <returns>Возвращает значение функции.</returns>
         public double Calculate(double a, double b, int c, FunctionType functionType)
         {
             int powerNumber = (int)functionType + 1;
@@ -110,10 +111,10 @@ namespace FunctionsWpf.Models
         #region Конструктор
 
         /// <summary>
-        /// Инициализирует аргументы функции 'x' и 'y'
+        /// Инициализирует аргументы функции 'x' и 'y'.
         /// </summary>
-        /// <param name="x">Аргумент функции 'x'</param>
-        /// <param name="y">Аргумент функции 'y'</param>
+        /// <param name="x">Аргумент функции 'x'.</param>
+        /// <param name="y">Аргумент функции 'y'.</param>
         public Function(double x = 0 , double y = 0)
         {
             X = x;
