@@ -211,7 +211,8 @@ namespace FunctionsWpf.ViewModels
         /// <param name="parameter">Параметр команды.</param>
         private void OnAddRowToFunctionTableCommandExecuted(object parameter)
         {
-            Functions.Add(new Function(0, 0));
+            var function = new Function();
+            Functions.Add(function);
         }
 
         #endregion
