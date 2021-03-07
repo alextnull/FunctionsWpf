@@ -47,6 +47,22 @@ namespace FunctionsWpf.Infrastructure.Converters
                     return 0;
                 }
 
+                int numberLength = numberString.Length;
+                string previousNumberString = previousNumber.ToString();
+                int previousNumberLength = previousNumberString.Length;
+
+                int numberLastDigit = int.Parse(numberString[numberLength - 1].ToString());
+                int previousNumberLastDigit = int.Parse(previousNumberString[previousNumberLength - 1].ToString());
+
+                if ((numberLength > previousNumberLength) && (numberLastDigit != previousNumberLastDigit))
+                {
+                    numberString = numberString.Substring(0, numberLength - 1);  
+                }
+                else if ((numberLength > previousNumberLength) && (numberLastDigit == previousNumberLastDigit) && (numberLastDigit > 4))
+                {
+                    numberString = numberString.Substring(0, numberLength - 1);
+                }
+
                 if (numberString[0] == '-')
                 {
                     numberString = $"-{numberString.Replace("-", "")}";
