@@ -28,7 +28,7 @@ namespace FunctionsWpf.Infrastructure.Converters
                 int functionIndex = int.Parse(values[5].ToString());
                 Function.FunctionType functionType = Function.GetFunctionTypeFromIndex(functionIndex);
 
-                Function function = new Function(x, y);
+                var function = new Function(x, y);
                 double functionValue = function.Calculate(a, b, c, functionType);
                 return functionValue.ToString("0.00", CultureInfo.InvariantCulture);
             }
